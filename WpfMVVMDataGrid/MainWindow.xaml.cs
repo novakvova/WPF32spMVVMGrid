@@ -28,7 +28,8 @@ namespace WpfMVVMDataGrid
             _users.Add(new UserVM()
             {
                 Id = 1,
-                Name = "John Doe"
+                Name = "John Doe",
+                ImageUrl = "http://www.hawthorngroup.com/wp-content/uploads/2019/03/john-1-300x300.jpg"
             });
 
             dgSimple.ItemsSource = _users;
@@ -37,6 +38,19 @@ namespace WpfMVVMDataGrid
         private void BtnAddUser_Click(object sender, RoutedEventArgs e)
         {
             _users.Add(new UserVM() { Name = "New user" });
+        }
+
+        private void BtnChangeUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgSimple.SelectedItem != null)
+            {
+                if (dgSimple.SelectedItem is UserVM)
+                {
+                    var userView = (dgSimple.SelectedItem as UserVM);
+                    userView.Name = "Катюха";
+                    userView.ImageUrl = "https://s5.cdn.teleprogramma.pro/wp-content/uploads/2019/03/2d2b9151a77fcc58afbc0850a6556629.jpg";
+                }
+            }
         }
     }
 }

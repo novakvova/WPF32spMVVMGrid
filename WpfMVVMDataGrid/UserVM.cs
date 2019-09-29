@@ -12,7 +12,7 @@ namespace WpfMVVMDataGrid
         public int Id { get; set; }
 
         private string name;
-        
+        private string image;
         public string Name
         {
             get { return this.name; }
@@ -25,6 +25,20 @@ namespace WpfMVVMDataGrid
                 }
             }
         }
+
+        public string ImageUrl
+        {
+            get { return this.image; }
+            set
+            {
+                if (this.image != value)
+                {
+                    this.image = value;
+                    this.NotifyPropertyChanged("ImageUrl");
+                }
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
